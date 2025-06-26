@@ -1,0 +1,20 @@
+# Redirects for Luna AI Journaling Companion
+# This file ensures proper SPA routing for the React application
+
+# API routes (if any future API endpoints are added)
+/api/*  /api/:splat  200
+
+# Service Worker - ensure it's served with correct MIME type
+/service-worker.js  /service-worker.js  200
+  Content-Type: application/javascript
+
+# Manifest file - ensure it's served with correct MIME type
+/manifest.json  /manifest.json  200
+  Content-Type: application/manifest+json
+
+# Static assets - serve directly
+/assets/*  /assets/:splat  200
+/icons/*   /icons/:splat   200
+
+# All other routes should serve the main index.html for SPA routing
+/*  /index.html  200

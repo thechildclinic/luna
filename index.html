@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna - AI Journaling Companion</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style id="dynamic-theme-styles">
+    /* Default theme (Cosmic Night) variables will be injected here by JS, or overrides for other themes */
+    :root {
+      /* Base values, will be overridden by JS */
+      --theme-bg-gradient-from: #0f172a;
+      --theme-bg-gradient-to: #1e293b;
+      --theme-text-primary: #f3f4f6;
+      --theme-scrollbar-track: #1e293b;
+      --theme-scrollbar-thumb: #4b5563;
+      --theme-scrollbar-thumb-hover: #6b7280;
+    }
+  </style>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      /* Background will be set by JS via class or direct style manipulation for gradients */
+      color: var(--theme-text-primary);
+    }
+    /* Custom scrollbar for chat */
+    .chat-container::-webkit-scrollbar {
+      width: 8px;
+    }
+    .chat-container::-webkit-scrollbar-track {
+      background: var(--theme-scrollbar-track);
+      border-radius: 10px;
+    }
+    .chat-container::-webkit-scrollbar-thumb {
+      background: var(--theme-scrollbar-thumb);
+      border-radius: 10px;
+    }
+    .chat-container::-webkit-scrollbar-thumb:hover {
+      background: var(--theme-scrollbar-thumb-hover);
+    }
+
+    /* Animation for message bubbles */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.3s ease-out forwards;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"> 
+  <link rel="manifest" href="/manifest.json">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.4.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="text-gray-100"> {/* Base classes, specific theme classes/styles will be applied by JS */}
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch(error => {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>

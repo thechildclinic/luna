@@ -1,0 +1,8 @@
+{
+  "name": "Luna - AI Journaling Companion",
+  "description": "A compassionate AI journaling companion for reflection and emotional processing, using voice interaction.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "prompt": ""
+}
