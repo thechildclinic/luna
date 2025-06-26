@@ -1,14 +1,13 @@
 [build]
   # Build command - uses npm/yarn to build the Vite project
   command = "npm run build"
-  
+
   # Publish directory - where Vite outputs the built files
   publish = "dist"
-  
-  # Node.js version for build environment
-  environment = { NODE_VERSION = "18" }
 
 [build.environment]
+  # Node.js version for build environment
+  NODE_VERSION = "18"
   # Environment variables for build process
   # The GEMINI_API_KEY will be set in Netlify dashboard
   # Vite will pick it up during build and inject it into the client bundle
